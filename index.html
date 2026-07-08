@@ -833,13 +833,33 @@
         fortalecimiento organizacional y desarrollo de proyectos.
       </p>
 
-      <form>
-        <input type="text" placeholder="Nombre" />
-        <input type="email" placeholder="Correo electrónico" />
-        <textarea placeholder="Mensaje"></textarea>
+<form action="https://formspree.io/f/TU_ID_DE_FORMULARIO" method="POST">
 
-        <button class="btn btn-primary">Enviar mensaje</button>
-      </form>
+  <input 
+    type="text" 
+    name="nombre" 
+    placeholder="Nombre" 
+    required 
+  />
+
+  <input 
+    type="email" 
+    name="email" 
+    placeholder="Correo electrónico" 
+    required 
+  />
+
+  <textarea 
+    name="mensaje" 
+    placeholder="Mensaje" 
+    required>
+  </textarea>
+
+  <button class="btn btn-primary" type="submit">
+    Enviar mensaje
+  </button>
+
+</form>
 
     </div>
 
