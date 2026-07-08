@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perfil | Dr. Enrique Blancarte Fuentes</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --bg:#0b1120;
+  --bg-soft:#111827;
+  --card:rgba(255,255,255,0.04);
+  --gold:#f3c94d;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
+  --line:rgba(255,255,255,0.08);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Raleway',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:'Bebas Neue',sans-serif;
+  letter-spacing:1px;
+  font-weight:400;
+}
+
+p{
+  line-height:1.9;
+  color:#cbd5e1;
+  max-width:760px;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+img{
+  width:100%;
+  display:block;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:22px 70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(10,15,30,0.75);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+  color:var(--gold);
+  font-size:1.5rem;
+}
+
+.back-btn{
+  padding:12px 22px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.03);
+  transition:.3s;
+}
+
+.back-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(243,201,77,0.3);
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding:160px 90px 120px;
+  position:relative;
+  background:
+  linear-gradient(rgba(5,8,18,0.88), rgba(5,8,18,0.96)),
+  url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop') center/cover;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(circle at top right,
+  rgba(243,201,77,0.08),
+  transparent 30%);
+}
+
+.hero-grid{
+  width:100%;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:80px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
+
+.hero-content h1{
+  font-size:5rem;
+  line-height:.95;
+  margin-bottom:25px;
+}
+
+.hero-content h2{
+  color:var(--gold);
+  font-size:1.6rem;
+  margin-bottom:30px;
+}
+
+.hero-content p{
+  font-size:1.05rem;
+}
+
+.hero-image{
+  display:flex;
+  justify-content:center;
+}
+
+.hero-image img{
+  width:100%;
+  max-width:460px;
+  height:720px;
+  object-fit:cover;
+  border-radius:30px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 20px 60px rgba(0,0,0,0.45);
+}
+
+/* SECTIONS */
+
+section{
+  padding:140px 90px;
+}
+
+.section-header{
+  max-width:850px;
+  margin-bottom:90px;
+}
+
+.gold-line{
+  width:90px;
+  height:2px;
+  background:var(--gold);
+  margin-bottom:30px;
+}
+
+.section-title{
+  font-size:3rem;
+  margin-bottom:20px;
+}
+
+/* SPLIT */
+
+.split-section{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+  margin-bottom:120px;
+}
+
+.split-section.reverse .split-image{
+  order:2;
+}
+
+.split-image img{
+  border-radius:28px;
+  height:620px;
+  object-fit:cover;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.split-content h3{
+  font-size:2.2rem;
+  color:var(--gold);
+  margin-bottom:25px;
+}
+
+/* CARDS */
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:35px;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:45px;
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(243,201,77,0.2);
+}
+
+.card h3{
+  font-size:1.8rem;
+  color:var(--gold);
+  margin-bottom:20px;
+}
+
+/* QUOTE */
+
+.quote{
+  padding:140px 90px;
+  text-align:center;
+  background:
+  linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.82)),
+  url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1600&auto=format&fit=crop') center/cover fixed;
+}
+
+.quote h2{
+  max-width:900px;
+  margin:auto;
+  font-size:3rem;
+  line-height:1.3;
+}
+
+/* PDF */
+
+.pdf-box{
+  margin-top:60px;
+  padding:35px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:10px;
+  transition:.3s;
+  display:inline-block;
+}
+
+.btn-primary{
+  background:var(--gold);
+  color:#000;
+}
+
+.btn-secondary{
+  border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.03);
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+  padding:45px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.06);
+  color:var(--muted);
+}
+
+/* REVEAL */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+  .navbar{
+    padding:20px 24px;
+  }
+
+  .hero,
+  section,
+  .quote{
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  .hero-grid,
+  .split-section{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:3.8rem;
+  }
+
+  .hero-image img{
+    height:560px;
+  }
+
+  .split-image img{
+    height:420px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+  <div class="logo">
+    Blancarte
+  </div>
+
+  <a href="index.html" class="back-btn">
+    ← Regresar al inicio
+  </a>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-grid">
+
+    <div class="hero-content reveal">
+
+      <h1>
+        Perfil y trayectoria
+      </h1>
+
+      <h2>
+        Experiencia institucional, articulación estratégica y visión contemporánea.
+      </h2>
+
+      <p>
+        La trayectoria del Dr. Enrique Blancarte Fuentes integra experiencia
+        académica, participación institucional, investigación aplicada y
+        fortalecimiento organizacional orientados a la comprensión de escenarios
+        públicos contemporáneos.
+      </p>
+
+    </div>
+
+    <div class="hero-image reveal">
+
+      <img src="in_hero01.jpg" alt="Dr. Enrique Blancarte">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BIOGRAFÍA -->
+
+<section id="biografia">
+
+  <div class="section-header reveal">
+
+    <div class="gold-line"></div>
+
+    <h2 class="section-title">
+      Construcción de trayectoria
+    </h2>
+
+  </div>
+
+  <div class="split-section">
+
+    <div class="split-content reveal">
+
+      <h3>
+        Experiencia institucional y articulación estratégica
+      </h3>
+
+      <p>
+        El Dr. Enrique Blancarte Fuentes desarrolla su trayectoria profesional
+        en la intersección entre gestión institucional, formación académica,
+        salud pública y articulación estratégica de capacidades orientadas
+        al fortalecimiento organizacional y territorial.
+      </p>
+
+      <br>
+
+      <p>
+        Su experiencia integra participación en espacios hospitalarios,
+        coordinación académica, investigación aplicada y desarrollo de proyectos
+        vinculados con gobernabilidad, calidad educativa, sustentabilidad,
+        análisis organizacional y políticas públicas contemporáneas.
+      </p>
+
+    </div>
+
+    <div class="split-image reveal">
+
+      <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1200&auto=format&fit=crop" alt="Trayectoria institucional">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- VISIÓN -->
+
+<section>
+
+  <div class="section-header reveal">
+
+    <div class="gold-line"></div>
+
+    <h2 class="section-title">
+      Perspectiva contemporánea
+    </h2>
+
+    <p>
+      Su enfoque integra capacidades relacionadas con salud pública,
+      gobernabilidad, organización institucional, análisis territorial y
+      formación académica, comprendiendo que los desafíos actuales requieren
+      respuestas multidisciplinarias y articulación estratégica.
+    </p>
+
+  </div>
+
+  <div class="split-section">
+
+    <div class="split-content reveal">
+
+      <h3>
+        Articulación institucional
+      </h3>
+
+      <p>
+        La experiencia desarrollada en espacios académicos, organizacionales
+        y de gestión ha permitido construir una visión orientada al
+        fortalecimiento institucional y al desarrollo de capacidades
+        aplicadas a contextos complejos y dinámicos.
+      </p>
+
+    </div>
+
+    <div class="split-image reveal">
+
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Institucional">
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXPERIENCIA -->
+
+<section>
+
+  <div class="section-header reveal">
+
+    <div class="gold-line"></div>
+
+    <h2 class="section-title">
+      Formación y experiencia
+    </h2>
+
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card reveal">
+
+      <h3>
+        Gestión académica
+      </h3>
+
+      <p>
+        Participación en procesos educativos, coordinación académica,
+        tutorías, evaluación y fortalecimiento universitario.
+      </p>
+
+    </div>
+
+    <div class="card reveal">
+
+      <h3>
+        Investigación aplicada
+      </h3>
+
+      <p>
+        Producción intelectual orientada al análisis organizacional,
+        salud pública, sustentabilidad y desarrollo territorial.
+      </p>
+
+    </div>
+
+    <div class="card reveal">
+
+      <h3>
+        Gobernabilidad y territorio
+      </h3>
+
+      <p>
+        Integración de capacidades relacionadas con estrategia,
+        articulación institucional y comprensión de dinámicas sociales.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+
+<section class="quote">
+
+  <h2 class="reveal">
+    “Las instituciones no se fortalecen únicamente desde la administración,
+    sino desde la capacidad de comprender el territorio, las personas
+    y las dinámicas que les dan sentido.”
+  </h2>
+
+</section>
+
+<!-- PRODUCCIÓN -->
+
+<section>
+
+  <div class="split-section reverse">
+
+    <div class="split-content reveal">
+
+      <div class="gold-line"></div>
+
+      <h2 class="section-title">
+        Producción intelectual y participación
+      </h2>
+
+      <p>
+        Ha participado en congresos, proyectos académicos,
+        publicaciones y espacios de divulgación vinculados con
+        salud pública, educación, sustentabilidad, innovación
+        organizacional y fortalecimiento institucional.
+      </p>
+
+      <div class="pdf-box">
+
+        <div>
+
+          <h3 style="margin-bottom:10px;">
+            Perfil curricular
+          </h3>
+
+          <p>
+            Espacio preparado para CV, publicaciones y documentos institucionales.
+          </p>
+
+        </div>
+
+        <a href="cv.pdf" class="btn btn-primary">
+          Descargar CV
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="split-image reveal">
+
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Investigación">
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 · Dr. Enrique Blancarte Fuentes · Perfil institucional.
+
+</footer>
+
+<script>
+
+const reveals = document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+
+  reveals.forEach(item=>{
+
+    const windowHeight = window.innerHeight;
+    const revealTop = item.getBoundingClientRect().top;
+
+    if(revealTop < windowHeight - 100){
+      item.classList.add('active');
+    }
+
+  });
+
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+revealOnScroll();
+
+</script>
+
+</body>
+</html>

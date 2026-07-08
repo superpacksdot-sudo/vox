@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Enrique Blancarte Fuentes</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+	.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: auto;
+	}
+
+    :root {
+      --bg: #0b1120;
+      --bg-soft: #111827;
+      --card: rgba(255,255,255,0.04);
+      --gold: #f3c94d;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --line: rgba(255,255,255,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+	p {
+		  line-height: 1.9;
+		  color: #cbd5e1;
+		  max-width: 760px;
+	}
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    /* NAVBAR */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 22px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 15, 30, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .logo {
+      color: var(--gold);
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      position: relative;
+      font-size: 0.95rem;
+      color: #d1d5db;
+      transition: 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 70px 100px;
+      position: relative;
+      background:
+        linear-gradient(rgba(7,10,20,0.88), rgba(7,10,20,0.96)),
+        url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop') center/cover;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(243,201,77,0.08), transparent 30%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      padding-top: 30px;
+	  z-index: 2;
+    }
+	.hero-grid{
+		width:100%;
+		display:grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		gap:60px;
+		align-items:center;
+	}
+
+	.hero-image{
+		margin-top:40px;
+		position:relative;
+		display:flex;
+		justify-content:center;
+	}
+
+	.hero-image img{
+		width:100%;
+		max-width:420px;
+		height:520px;
+		object-fit:cover;
+		border-radius:28px;
+		border:1px solid rgba(255,255,255,0.08);
+		box-shadow:
+		  0 20px 60px rgba(0,0,0,0.45);
+	}
+
+    .hero h1 {
+      font-size: 5.2rem;
+      line-height: 0.95;
+      max-width: 900px;
+	  margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      margin-top: 40px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 28px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      font-size: 0.95rem;
+      letter-spacing: 0.4px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #000;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* GENERAL SECTIONS */
+
+	section {
+		  padding: 140px 90px;
+		  position: relative;
+	}
+
+	.section-header {
+		  max-width: 850px;
+		  margin-bottom: 90px;
+	}
+
+    .section-title {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .gold-line {
+      width: 90px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: 30px;
+    }
+
+    /* TEXT BLOCKS */
+
+    .text-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 55px;
+    }
+
+    .text-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 50px;
+      transition: 0.3s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .text-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(243,201,77,0.25);
+    }
+
+    .text-card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      color: var(--gold);
+    }
+
+    /* PORTAFOLIO */
+
+    .portfolio-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    .portfolio-block {
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 24px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 360px;
+    }
+
+    .portfolio-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .portfolio-media img {
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .portfolio-block:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-content {
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .portfolio-content h3 {
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
+    .portfolio-content h4 {
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin: 10px 0 25px;
+    }
+
+    .portfolio-content ul {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .portfolio-content li {
+      margin-bottom: 12px;
+      color: #d1d5db;
+    }
+
+    /* MULTIMEDIA */
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .media-card {
+      background: var(--card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .media-card iframe {
+      width: 100%;
+      height: 220px;
+      border: none;
+    }
+
+    .media-info {
+      padding: 25px;
+    }
+
+    /* PDF */
+
+    .pdf-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-top: 25px;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      position: relative;
+      margin-top: 50px;
+      padding-left: 40px;
+      border-left: 2px solid rgba(243,201,77,0.25);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 60px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -50px;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .timeline-year {
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .timeline-item h3 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      max-width: 800px;
+      padding: 50px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-box form {
+      display: grid;
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px;
+      color: white;
+      font-family: inherit;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 45px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ANIMATIONS */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 1s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width: 992px) {
+	grid-template-columns:1fr;
+      .navbar {
+        padding: 20px 30px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      section {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero h1 {
+        font-size: 3.8rem;
+      }
+
+      .portfolio-block {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-media {
+        min-height: 280px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">Blancarte</div>
+
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#enfoque">Enfoque</a>
+      <a href="#articulacion">Articulación</a>
+      <a href="#investigacion">Investigación</a>
+      <a href="#perspectivas">Perspectivas</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+
+   <div class="hero-grid">
+
+  <div class="hero-content reveal">
+      <h1>Dr. Enrique Blancarte Fuentes</h1>
+
+      <h2>
+        Gestión estratégica, gobernabilidad y fortalecimiento institucional.
+      </h2>
+
+      <p>
+        Plataforma orientada a la articulación de capacidades relacionadas con análisis estratégico,
+        operación institucional, territorio, salud pública y construcción de soluciones integrales
+        para escenarios públicos contemporáneos.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#trayectoria" class="btn btn-primary">Explorar trayectoria</a>
+        <a href="#portafolio" class="btn btn-secondary">Portafolio estratégico</a>
+      </div>
+  </div>
+
+  <div class="hero-image reveal">
+
+    <img src="in_hero01.jpg" alt="Dr. Enrique Blancarte">
+
+  </div>
+ 
+   </div>
+
+  </section>
+
+  <!-- ENFOQUE -->
+  <section id="enfoque">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Enfoque estratégico</h2>
+
+      <p>
+        Los desafíos contemporáneos requieren instituciones capaces de integrar análisis,
+        operación y comprensión territorial para responder de manera efectiva a escenarios
+        complejos relacionados con gobernabilidad, salud pública y fortalecimiento organizacional.
+      </p>
+    </div>
+
+    <div class="text-grid">
+
+      <div class="text-card reveal">
+        <h3>Gobernabilidad</h3>
+        <p>
+          Integración de capacidades orientadas al fortalecimiento institucional,
+          coordinación operativa y toma de decisiones estratégicas.
+        </p>
+      </div>
+
+      <div class="text-card reveal">
+        <h3>Estrategia</h3>
+        <p>
+          Planeación, evaluación y análisis multidisciplinario aplicados a contextos
+          institucionales y territoriales.
+        </p>
+      </div>
+
+      <div class="text-card reveal">
+        <h3>Articulación</h3>
+        <p>
+          Conexión entre actores, instituciones y capacidades para generar respuestas
+          integrales y sostenibles.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CAMPOS -->
+  <section id="articulacion">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Campos de articulación</h2>
+    </div>
+
+    <div class="text-grid">
+
+      <div class="text-card reveal">
+        <h3>Planeación estratégica</h3>
+        <p>
+          Diseño y evaluación de rutas de intervención institucional.
+        </p>
+      </div>
+
+      <div class="text-card reveal">
+        <h3>Gestión territorial</h3>
+        <p>
+          Comprensión operativa y análisis de dinámicas sociales y territoriales.
+        </p>
+      </div>
+
+      <div class="text-card reveal">
+        <h3>Salud pública</h3>
+        <p>
+          Desarrollo de enfoques integrales orientados al fortalecimiento comunitario.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- INVESTIGACIÓN -->
+  <section id="investigacion">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Investigación y formación</h2>
+
+      <p>
+        Integración entre experiencia operativa, análisis estratégico y producción intelectual
+        orientada al estudio de problemáticas públicas contemporáneas.
+      </p>
+    </div>
+
+    <div class="text-grid">
+
+      <div class="text-card reveal">
+        <h3>Líneas de investigación</h3>
+        <p>
+          Salud pública, sustentabilidad, territorio, gobernabilidad,
+          educación y fortalecimiento organizacional.
+        </p>
+      </div>
+
+      <div class="text-card reveal">
+        <h3>Participación académica</h3>
+        <p>
+          Coordinación educativa, tutorías, evaluación y formación de capacidades.
+        </p>
+      </div>
+
+      <div class="text-card reveal">
+        <h3>Producción intelectual</h3>
+        <p>
+          Publicaciones, investigación aplicada, conferencias y divulgación.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PERSPECTIVAS -->
+  <section id="perspectivas">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Perspectivas y publicaciones</h2>
+    </div>
+
+    <div class="media-grid">
+
+      <div class="media-card reveal">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Artículo">
+
+        <div class="media-info">
+          <h3>Análisis institucional y territorio</h3>
+          <p>
+            Placeholder para artículos, ensayos y análisis estratégicos.
+          </p>
+        </div>
+      </div>
+
+      <div class="media-card reveal">
+        <iframe src="https://youtu.be/hmbmoabUvPI?si=3z8-NdiRAUdLPdvV"></iframe>
+
+        <div class="media-info">
+          <h3>Video / conferencia</h3>
+          <p>
+            Espacio preparado para entrevistas, cápsulas o conferencias.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pdf-box reveal">
+      <div>
+        <h3>Documento PDF</h3>
+        <p>
+          Ejemplo de descarga para investigaciones, propuestas o documentos institucionales.
+        </p>
+      </div>
+
+      <a href="#" class="btn btn-primary">Descargar PDF</a>
+    </div>
+
+  </section>
+
+  <!-- PORTAFOLIO -->
+  <section id="portafolio">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Portafolio estratégico</h2>
+
+      <p>
+        VOX PÚBLICA integra herramientas de análisis, estrategia y acompañamiento institucional
+        orientadas a la comprensión y atención de escenarios públicos contemporáneos.
+      </p>
+    </div>
+
+    <div class="portfolio-stack">
+
+      <div class="portfolio-block reveal">
+
+        <div class="portfolio-media">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1400&auto=format&fit=crop" alt="VOX Estudios">
+        </div>
+
+        <div class="portfolio-content">
+          <h3>VOX PÚBLICA Estudios</h3>
+          <h4>Opinión pública y análisis estratégico</h4>
+
+          <ul>
+            <li>• Encuestas electorales y de gobierno</li>
+            <li>• Estudios de percepción ciudadana</li>
+            <li>• Diagnósticos territoriales</li>
+          </ul>
+
+          <a href="#contacto" class="btn btn-primary">Explorar líneas de análisis</a>
+        </div>
+
+      </div>
+
+      <div class="portfolio-block reveal">
+
+        <div class="portfolio-media">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop" alt="VOX Campañas">
+        </div>
+
+        <div class="portfolio-content">
+          <h3>VOX PÚBLICA Campañas</h3>
+          <h4>Estrategia y gerencia electoral</h4>
+
+          <ul>
+            <li>• Diseño de estrategia electoral</li>
+            <li>• Gerencia de campañas</li>
+            <li>• Planeación territorial</li>
+          </ul>
+
+          <a href="#contacto" class="btn btn-primary">Conocer capacidades estratégicas</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TRAYECTORIA -->
+  <section id="trayectoria">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Trayectoria y experiencia</h2>
+
+      <p>
+        Recorrido profesional y académico desarrollado entre operación institucional,
+        investigación aplicada, fortalecimiento organizacional y articulación estratégica.
+      </p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">ETAPA 01</div>
+        <h3>Operación institucional</h3>
+
+        <p>
+          Participación en espacios hospitalarios, coordinación y fortalecimiento institucional.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">ETAPA 02</div>
+        <h3>Formación académica</h3>
+
+        <p>
+          Integración de procesos educativos, tutorías y coordinación universitaria.
+        </p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-year">ETAPA 03</div>
+        <h3>Gobernabilidad y estrategia</h3>
+
+        <p>
+          Desarrollo de capacidades relacionadas con análisis territorial,
+          planeación y articulación institucional.
+        </p>
+      </div>
+		<a href="persona.html" class="btn btn-secondary">
+		Ver perfil completo
+		</a>
+    </div>
+
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+
+    <div class="section-header reveal">
+      <div class="gold-line"></div>
+      <h2 class="section-title">Contacto</h2>
+    </div>
+
+    <div class="contact-box reveal">
+
+      <p>
+        Espacio orientado a colaboración institucional, análisis estratégico,
+        fortalecimiento organizacional y desarrollo de proyectos.
+      </p>
+
+      <form>
+        <input type="text" placeholder="Nombre" />
+        <input type="email" placeholder="Correo electrónico" />
+        <textarea placeholder="Mensaje"></textarea>
+
+        <button class="btn btn-primary">Enviar mensaje</button>
+      </form>
+
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 · Dr. Enrique Blancarte Fuentes · Plataforma estratégica e institucional.
+  </footer>
+
+  <script>
+
+    // SCROLL REVEAL
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    function revealOnScroll() {
+      reveals.forEach(item => {
+        const windowHeight = window.innerHeight;
+        const revealTop = item.getBoundingClientRect().top;
+
+        if(revealTop < windowHeight - 100) {
+          item.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+  </script>
+
+</body>
+</html>
